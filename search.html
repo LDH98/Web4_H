@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            border:1px solid #000;
+            border-radius: 10px;
+            width:300px; height:400px;
+            margin:0 auto;
+            margin-top:50px;
+            overflow: hidden;
+        }
+        .search_container{
+            width:300px;
+            display: flex;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+        .search_text{
+            width:85%; height:20px;
+            border:1px solid #000;
+            display: inline-block;
+        }
+        .search_btn{
+            width:15%;
+            text-align: center;
+            display: inline-block;
+            background-color: #000;
+            color:#fff;
+            cursor: pointer;
+        }
+        .search_list_container{
+            padding:8px;
+        }
+        ul{
+            padding:0;
+        }
+        li{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size:16px;
+        }
+        input{
+            width:10%;
+        }
+        p{
+            width:80%;
+        }
+        span{
+            width:15%;
+            color:red;
+            cursor: pointer;
+        }
+        .done{
+            color:gray;
+            text-decoration: line-through;
+        }
+        .search_list{
+            text-align: center;
+            font-size:32px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="search_list">오늘의 할일</div>
+        <div class="search_container">
+            <input type="text" name="" id="" class="search_text">
+            <div class="search_btn">추가</div>
+        </div>
+        <div class="search_list_container">
+            <ul class="search_contents"></ul>
+        </div>
+    </div>
+
+    <script>
+        const searchText = document.querySelector('.search_text');
+        const searchBtn = document.querySelector('.search_btn');
+        const searchList = document.querySelector('.search_contents');
+
+        searchBtn.addEventListener('click', addList);
+
+            function addList(){
+
+                const liTag = document.createElement('li');
+                const checkBox = document.createElement('input');
+                const pNode = document.createElement('p');
+                const liText = document.createTextNode(searchText.value);
+                checkBox.setAttribute("type", "checkbox");
+                
+                liTag.appendChild(checkBox);
+                pNode.appendChild(liText);
+                liTag.appendChild(pNode);
+                
+                checkBox.addEventListener('change', ()=>{
+                    if(checkBox.checked){
+                        pNode.classList.add('done');
+                    }else{
+                        pNode.classList.remove('done');
+                    }
+                })
+
+                const delTag = document.createElement('span');
+                const delText = document.createTextNode('삭제');
+
+                delTag.appendChild(delText);
+                liTag.appendChild(delTag);
+
+                searchList.insertBefore(liTag,searchList.firstChild);
+
+                searchText.value = '';
+
+                delTag.addEventListener('click', ()=>{
+                    searchList.removeChild(delTag.parentNode);
+                });
+            };
+
+        window.addEventListener('keyup', e=>{
+            if(e.key === 'Enter'){
+                addList();
+            }
+        })
+    </script>
+</body>
+</html>

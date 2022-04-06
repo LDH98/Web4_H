@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0; padding: 0;
+        }
+        body{
+            height: 5000px;
+            padding-top: 3000px;
+        }
+        .introduce{
+            transition: 1s;
+            opacity: 0;
+            margin-top: 400px;
+            text-align: center;
+        }
+        .one{
+            color:red;
+            transform: translateY(-100px);
+        }
+        .two{
+            color:orange;
+            transform: translateX(-400px);
+        }
+        .three{
+            color:yellow;
+            transform: translateX(400px);
+        }
+        .four{
+            color:green;
+            transform: translateY(100px);
+        }
+        .five{
+            color:blue;
+            transform: translate(100px, 100px);
+        }
+        .in{
+            opacity: 1;
+            transform: none;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="introduce one">안녕하세요.</h1>
+    <h1 class="introduce two">저는 박성학입니다.</h1>
+    <h1 class="introduce three">인천 남동구 간석동에 살구요.</h1>
+    <h1 class="introduce four">MBTI는 INFP 입니다.</h1>
+    <h1 class="introduce five">감사합니다.</h1>
+    
+    <script>
+        const introduce = document.getElementsByClassName('introduce');
+        
+        window.addEventListener('scroll', ()=>{
+            const winH = window.innerHeight;
+            for(let i = 0; i < introduce.length; i++){
+                const introduceTop = introduce[i].getBoundingClientRect().top;
+                if(introduceTop < winH){
+                    introduce[i].classList.add('in');
+                };
+                if(introduceTop > winH){
+                    introduce[i].classList.remove('in');
+                };
+            }
+        });
+    </script>
+</body>
+</html>

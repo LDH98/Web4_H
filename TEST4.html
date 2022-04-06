@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>빨강</div>
+    <div>파랑</div>
+    <div>노랑</div>
+
+    <p class="space">글씨색이 바뀔곳</p>
+
+    <script>
+        const colorButtons = document.getElementsByTagName('div');
+        
+        colorButtons[0].onclick = fontColorChange('red');
+        colorButtons[1].onclick = fontColorChange('blue');
+        colorButtons[2].onclick = fontColorChange('yellow');
+
+        function fontColorChange(fontColor){
+            document.querySelector('.space').style.color=fontColor;
+        }
+        
+        // 작동 X
+    </script>
+</body>
+</html>

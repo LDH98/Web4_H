@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul{
+            list-style: none;
+        }
+
+        .check_list_container{
+            width: 200px;
+            height:300px;
+            border:2px solid gray;
+            margin:0 auto;
+            margin-top:30px;
+            border-radius: 10px;
+            padding:10px;
+            box-sizing: border-box;
+        }
+        .check_list_name{
+            border-bottom: 1px solid gray;
+            text-align: center;
+        }
+        .check_list{
+            padding:8px;
+        }
+        .check_list_content{
+            margin-top:8px;
+            border-bottom: 1px solid #aaaaaa;
+        }
+        .done{
+            color:gray;
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="check_list_container">
+            <div class="check_list_name">
+                <h3>오늘의 할일</h3>
+            </div>
+            <ul class="check_list">
+                <li class="check_list_content">
+                    <input type="checkbox" name="" id="">
+                    <label>숨쉬기</label>
+                </li>
+                <li class="check_list_content">
+                    <input type="checkbox" name="" id="">
+                    <label>밥먹기</label>
+                </li>
+                <li class="check_list_content">
+                    <input type="checkbox" name="" id="">
+                    <label>잠자기</label>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+
+    <script>
+        const checkList = document.getElementsByClassName('check_list_content');
+
+        for(let i = 0; i < checkList.length; i++){
+            checkList[i].addEventListener('change', ()=>{
+                if(checkList[i].children[0].checked){
+                    checkList[i].children[1].classList.add('done');
+                }else{
+                    checkList[i].children[1].classList.remove('done');
+                }
+            })
+        }
+    </script>
+</body>
+</html>

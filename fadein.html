@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height:3000px;
+            padding-top:2000px;
+        }
+        .rect{
+            width:100px; height:100px;
+            background-color: aqua;
+        }
+        .fade{
+            opacity: 0;
+            transform: translateY(100px);
+            transition: 1s;
+        }
+        .in{
+            opacity: 1;
+            transform: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="rect fade">
+
+    </div>
+
+    <script>
+        const rectObject = document.querySelector(".rect");
+        let winH = window.innerHeight;
+        
+        window.addEventListener('scroll', ()=>{
+            const rectTop = rectObject.getBoundingClientRect().top;
+            // const nowY = window.scrollY;
+            if(rectTop < winH){
+                rectObject.classList.add('in');
+            }
+        })
+    </script>
+</body>
+</html>

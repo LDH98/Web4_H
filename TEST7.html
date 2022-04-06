@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button class="date_alert">날짜알림</button>
+
+    <script>
+        let dateAlert = document.getElementsByTagName('button');
+        dateAlert[0].addEventListener('click',function(){
+            let date = new Date();
+            alert('현재시각은 ' + date.getHours()+'시 ' + date.getMinutes()+'분 입니다.');
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button class="human_name">대기 등록</button>
+    <button class="human_list">대기자 명단</button>
+    <button class="human_join">입장</button>
+
+    <script>
+        const waitingBtn = document.querySelector('.human_name');
+        const listBtn = document.querySelector('.human_list');
+        const joinBtn = document.querySelector('.human_join');
+        const customerList = new Array();
+
+        waitingBtn.addEventListener('click', function(){
+            customerList.push(prompt("이름을 입력하세요."));
+        })
+
+        listBtn.addEventListener('click', viewList);
+
+        function viewList(){
+            alert('현재대기자는 ' + customerList + "이며 총 " + customerList.length + "명 입니다.");
+        }
+
+        joinBtn.addEventListener('click', humanJoin)
+
+        function humanJoin(){
+            alert(customerList.shift() + "님 입장합니다.");
+        }
+    </script>
+</body>
+</html>

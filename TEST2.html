@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        커피머신(Number(prompt("투입금액")), Number(prompt("몇잔")));
+        function 커피머신(money, cup){
+            const price = 300;
+            if(money < cup * price){
+                alert("돈이 부족함");
+            }else{
+                alert("거스름돈은" + (money - ( cup * price )) + "입니다.");
+                alert("커피가" + cup + "잔 나왔습니다.");
+                alert("마싯게드세요");
+            }
+        }
+
+
+        function hi(){
+            alert("하이");
+        }
+        // 매개변수가 없다.
+
+        function hiCount(count){
+            for(let i = 0; i < count; i++){
+                alert("하이" + i);
+            }
+        }
+
+
+        function scope(){
+            if(true){
+                let hihi = "안녕";
+            }
+            alert(hihi);
+        }
+
+
+        hiCount(5);
+
+    </script>
+    <!-- 
+        1. 매개변수(+인수)
+        2. 스코프 -> 변수가 선언되었을때 변수가 영향을 미치는 범위
+        3. return
+     -->
+</body>
+</html>
