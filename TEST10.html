@@ -101,6 +101,10 @@
         buttons.children[0].addEventListener('click', prev);
         buttons.children[2].addEventListener('click', next);
 
+        setInterval(() => {
+            next();
+        }, 3000)
+
         function prev(){
             if(moveCheck){
                 moveCheck = false;
